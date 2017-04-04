@@ -1,4 +1,4 @@
-package org.toasthub.test.core.login;
+package org.toasthub.test.core.pages.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

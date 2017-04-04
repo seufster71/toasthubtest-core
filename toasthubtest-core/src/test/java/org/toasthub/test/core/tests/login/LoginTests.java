@@ -1,9 +1,10 @@
-package org.toasthub.test.core.login;
+package org.toasthub.test.core.tests.login;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.toasthub.test.core.general.BaseTests;
-import org.toasthub.test.core.member.MemberArea;
+import org.toasthub.test.core.pages.login.LoginPage;
+import org.toasthub.test.core.pages.member.MemberArea;
 
 
 public class LoginTests extends BaseTests {

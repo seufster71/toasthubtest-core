@@ -1,4 +1,4 @@
-package org.toasthub.test.core.member;
+package org.toasthub.test.core.pages.member;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
