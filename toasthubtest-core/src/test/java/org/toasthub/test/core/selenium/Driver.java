@@ -30,4 +30,11 @@ public class Driver {
 		} catch (InterruptedException e) {
 		}
 	}
+	
+	public static void waitMilli(Integer msec){
+		try {
+			Thread.sleep(msec);
+		} catch (InterruptedException e) {
+		}
+	}
 }
