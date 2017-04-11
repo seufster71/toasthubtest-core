@@ -2,8 +2,12 @@ package org.toasthub.test.core.selenium;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.toasthub.test.core.general.GeneralSettings;
 
 public class Driver {
@@ -36,5 +40,12 @@ public class Driver {
 			Thread.sleep(msec);
 		} catch (InterruptedException e) {
 		}
+	}
+	
+	public static WebElement getAndWait(String id){
+		
+		WebDriverWait wait = new WebDriverWait(Instance, 10);
+		return wait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
+		//.until(ExpectedConditions.presenceOfElementLocated(By.id("myDynamicElement")));
 	}
 }
