@@ -13,7 +13,7 @@ public class LoginPage {
 		Driver.getInstance().get(GeneralSettings.hostWebContext+"/login/login.html");
 		
 		WebElement username = Driver.getInstance().findElement(By.id("LOGIN_FORM-LOGIN_FORM_USERNAME"));
-		username.sendKeys("seufster");
+		username.sendKeys("cborgAdmin");
 		
 		WebElement password = Driver.getInstance().findElement(By.id("LOGIN_FORM-LOGIN_FORM_PASSWORD"));
 		password.sendKeys("Fast8Run#");
