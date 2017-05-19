@@ -17,7 +17,8 @@ public class Driver {
 	public static void Initialize() {
 		System.setProperty("webdriver.chrome.driver", GeneralSettings.exePath);
 		Instance = new ChromeDriver();
-		Instance.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		// DO NOT CHANGE THIS we are using Explicit wait  use the getAndWait instead of findElement
+		Instance.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 	}
 
 	public static WebDriver getInstance() {
@@ -42,10 +43,23 @@ public class Driver {
 		}
 	}
 	
-	public static WebElement getAndWait(String id){
-		
+	public static WebElement findOrWaitById(String id){
 		WebDriverWait wait = new WebDriverWait(Instance, 10);
 		return wait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
-		//.until(ExpectedConditions.presenceOfElementLocated(By.id("myDynamicElement")));
+	}
+	
+	public static WebElement findOrWaitByXPath(String xpath){
+		WebDriverWait wait = new WebDriverWait(Instance, 10);
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+	}
+	
+	public static Boolean exists(String xpath){
+		WebDriverWait wait = new WebDriverWait(Driver.getInstance(), 2);
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 }

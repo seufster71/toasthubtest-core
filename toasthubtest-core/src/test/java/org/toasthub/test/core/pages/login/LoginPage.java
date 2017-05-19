@@ -1,7 +1,5 @@
 package org.toasthub.test.core.pages.login;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.toasthub.test.core.general.GeneralSettings;
 import org.toasthub.test.core.selenium.Driver;
 
@@ -12,14 +10,11 @@ public class LoginPage {
 		
 		Driver.getInstance().get(GeneralSettings.hostWebContext+"/login/login.html");
 		
-		WebElement username = Driver.getInstance().findElement(By.id("LOGIN_FORM-LOGIN_FORM_USERNAME"));
-		username.sendKeys("cborgAdmin");
+		Driver.findOrWaitById("LOGIN_FORM-LOGIN_FORM_USERNAME").sendKeys("cborgAdmin");
+	
+		Driver.findOrWaitById("LOGIN_FORM-LOGIN_FORM_PASSWORD").sendKeys("Fast8Run#");
 		
-		WebElement password = Driver.getInstance().findElement(By.id("LOGIN_FORM-LOGIN_FORM_PASSWORD"));
-		password.sendKeys("Fast8Run#");
-		
-		WebElement button = Driver.getInstance().findElement(By.id("LOGIN_FORM-LOGIN_FORM_SUBMIT_BUTTON"));
-		button.click();
+		Driver.findOrWaitById("LOGIN_FORM-LOGIN_FORM_SUBMIT_BUTTON").click();
 		
 		Driver.waitSeconds(1);
 		
