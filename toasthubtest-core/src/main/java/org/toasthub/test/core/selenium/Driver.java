@@ -1,5 +1,6 @@
 package org.toasthub.test.core.selenium;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -44,17 +45,17 @@ public class Driver {
 	}
 	
 	public static WebElement findOrWaitById(String id){
-		WebDriverWait wait = new WebDriverWait(Instance, 10);
+		WebDriverWait wait = new WebDriverWait(Instance, Duration.ofSeconds(10));
 		return wait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
 	}
 	
 	public static WebElement findOrWaitByXPath(String xpath){
-		WebDriverWait wait = new WebDriverWait(Instance, 10);
+		WebDriverWait wait = new WebDriverWait(Instance, Duration.ofSeconds(10));
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 	}
 	
 	public static Boolean exists(String xpath){
-		WebDriverWait wait = new WebDriverWait(Driver.getInstance(), 2);
+		WebDriverWait wait = new WebDriverWait(Driver.getInstance(), Duration.ofSeconds(10));
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 			return true;
